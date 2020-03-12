@@ -1,6 +1,5 @@
 # FTCRobotCore
 [![](https://jitpack.io/v/vulcanroboticsteam/FTCRobotCore.svg)](https://jitpack.io/#vulcanroboticsteam/FTCRobotCore)
-[![Build Status](https://travis-ci.com/vulcanroboticsteam/FTCRobotCore.svg?branch=master)](https://travis-ci.com/vulcanroboticsteam/FTCRobotCore)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/vulcanroboticsteam/FTCRobotCore/issues)
 <br>
 an FTC library to make things less confusing. Currently in development, no releases expected until late 2020
