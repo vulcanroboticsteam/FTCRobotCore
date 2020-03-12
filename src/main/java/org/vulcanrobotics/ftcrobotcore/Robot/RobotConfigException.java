@@ -8,14 +8,10 @@
 
 package org.vulcanrobotics.ftcrobotcore.Robot;
 
-public class Robot {
-    public static double movement_x;
-    public static double movement_y;
+public class RobotConfigException extends Exception {
 
-    public static double movePower;
-    public static double turnPower;
-
-
-
+    public RobotConfigException(String s) {
+        super(s);
+    }
 
 }

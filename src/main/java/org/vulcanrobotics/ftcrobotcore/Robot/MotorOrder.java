@@ -8,14 +8,9 @@
 
 package org.vulcanrobotics.ftcrobotcore.Robot;
 
-public class Robot {
-    public static double movement_x;
-    public static double movement_y;
-
-    public static double movePower;
-    public static double turnPower;
-
-
-
-
+public enum MotorOrder {
+    FRONT_TO_BACK_LEFT_TO_RIGHT,
+    FRONT_TO_BACK_RIGHT_TO_LEFT,
+    BACK_TO_FRONT_LEFT_TO_RIGHT,
+    BACK_TO_FRONT_RIGHT_TO_LEFT
 }
