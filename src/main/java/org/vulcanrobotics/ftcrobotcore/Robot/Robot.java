@@ -9,6 +9,11 @@
 package org.vulcanrobotics.ftcrobotcore.Robot;
 
 public class Robot {
+    public RobotConfig config;
+
+    public Robot(RobotConfig config) {
+        this.config = config;
+    }
     public static double movement_x;
     public static double movement_y;
 
