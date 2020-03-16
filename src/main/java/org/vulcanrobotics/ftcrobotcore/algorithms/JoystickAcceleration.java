@@ -6,25 +6,11 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.vulcanrobotics.ftcrobotcore.algorithms.holonomics;
+package org.vulcanrobotics.ftcrobotcore.algorithms;
 
-public class mecanumDrive {
-
-    public static void standardMecanumDriveController(double forward, double strafe, double turnPower, double multiplier) {
-
-        double vd = Math.hypot(forward, strafe);
-        double theta = Math.atan2(forward, strafe) - (Math.PI / 4);
-
-        double[] v = {
-                vd * Math.sin(theta) - turnPower,
-                vd * Math.cos(theta) + turnPower,
-                vd * Math.cos(theta) - turnPower,
-                vd * Math.sin(theta) + turnPower
-        };
-
-
-
-    }
-
+public enum JoystickAcceleration {
+    LINEAR,
+    CUBIC,
+    NON_LINEAR
 
 }

@@ -6,25 +6,29 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.vulcanrobotics.ftcrobotcore.algorithms.holonomics;
+package org.vulcanrobotics.ftcrobotcore.robot.wheels;
 
-public class mecanumDrive {
+public class WheelAttributes {
+    public double radius;
+    public WheelType wheelType;
+    public double rollerAngle;
 
-    public static void standardMecanumDriveController(double forward, double strafe, double turnPower, double multiplier) {
-
-        double vd = Math.hypot(forward, strafe);
-        double theta = Math.atan2(forward, strafe) - (Math.PI / 4);
-
-        double[] v = {
-                vd * Math.sin(theta) - turnPower,
-                vd * Math.cos(theta) + turnPower,
-                vd * Math.cos(theta) - turnPower,
-                vd * Math.sin(theta) + turnPower
-        };
-
-
+    public WheelAttributes() {
 
     }
 
+    public WheelAttributes(double radius, WheelType wheelType, double rollerAngle) {
+
+        this.radius = radius;
+        this.wheelType = wheelType;
+        this.rollerAngle = rollerAngle;
+    }
+
+    public void copyTo(WheelAttributes wheelAttributes) {
+        wheelAttributes.radius = this.radius;
+        wheelAttributes.wheelType = this.wheelType;
+        wheelAttributes.rollerAngle = this.rollerAngle;
+
+    }
 
 }

@@ -6,27 +6,20 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.vulcanrobotics.ftcrobotcore.Robot;
+package org.vulcanrobotics.ftcrobotcore.robot;
 
+public class RobotConfigException extends Exception {
 
-import com.qualcomm.robotcore.hardware.DcMotor;
+    public RobotConfigException() {
+        super();
+    }
 
-import org.vulcanrobotics.ftcrobotcore.algorithms.holonomics.JoystickAcceleration;
+    public RobotConfigException(String s) {
+        super(s);
+    }
 
-import java.util.List;
-
-public class RobotConfig {
-    public List<DcMotor> motors;
-    public MotorOrder motorOrder;
-    public JoystickAcceleration joystickAcceleration;
-
-    /**
-     * main method for RobotConfig, i'll add default configs later
-     */
-    public RobotConfig(List<DcMotor> motors, MotorOrder motorOrder, JoystickAcceleration joystickAcceleration) {
-        this.motors = motors;
-        this.motorOrder = motorOrder;
-        this.joystickAcceleration = joystickAcceleration;
+    public RobotConfigException(String message, Throwable cause) {
+        super(message, cause);
     }
 
 }

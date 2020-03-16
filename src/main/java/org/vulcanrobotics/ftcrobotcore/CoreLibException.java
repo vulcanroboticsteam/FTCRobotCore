@@ -6,12 +6,24 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.vulcanrobotics.ftcrobotcore.Robot;
+package org.vulcanrobotics.ftcrobotcore;
 
-public class RobotConfigException extends Exception {
+public class CoreLibException extends Exception {
 
-    public RobotConfigException(String s) {
+    public CoreLibException(){
+        super();
+    }
+
+    public CoreLibException(String s){
         super(s);
+    }
+
+    public CoreLibException(String message, Throwable cause){
+        super(message, cause);
+    }
+
+    public CoreLibException(Throwable cause) {
+        super(cause);
     }
 
 }
