@@ -9,12 +9,14 @@
 package org.vulcanrobotics.ftcrobotcore.robot;
 
 import org.vulcanrobotics.ftcrobotcore.robot.wheels.WheelAttributes;
-import org.vulcanrobotics.ftcrobotcore.algorithms.JoystickAcceleration;
+import org.vulcanrobotics.ftcrobotcore.teleop.JoystickAcceleration;
 
-public class RobotConfig {
+public abstract class RobotConfig {
     public static WheelAttributes wheelAttributes;
     public static JoystickAcceleration joystickAcceleration;
+    public static double robotAngleOffset;
 
+    public abstract void initialize();
 
 
 }

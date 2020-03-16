@@ -8,8 +8,25 @@
 
 package org.vulcanrobotics.ftcrobotcore.robot;
 
-public class Robot {
-    public static double movePower;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
+public class Robot extends RobotCore {
+
+    public static double xPower;
+    public static double yPower;
+
+
+    public void run(){
+
+
+    }
+
+    public void initialize(HardwareMap hwMap) {
+        front_right = hwMap.dcMotor.get("front_right");
+        front_left = hwMap.dcMotor.get("front_left");
+        back_right = hwMap.dcMotor.get("back_right");
+        back_left = hwMap.dcMotor.get("back_left");
+    }
 
 
 }

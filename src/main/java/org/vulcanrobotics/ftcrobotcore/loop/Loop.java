@@ -8,7 +8,18 @@
 
 package org.vulcanrobotics.ftcrobotcore.loop;
 
-public class Loop {
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
+public abstract class Loop extends OpMode {
+
+    @Override
+    public void loop() {
+        coreLoop();
+
+        //TODO add atuomatic loop stuff here
+
+    }
+
+    public abstract void coreLoop();
 
 }
