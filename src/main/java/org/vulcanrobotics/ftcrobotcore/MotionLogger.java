@@ -64,7 +64,7 @@ public class MotionLogger {
                 gamepadArray = mapper.readValue(result.toString(), new TypeReference<HashMap<Integer, HashMap<String, Object>>>(){});
 
             } catch (Exception e) {
-                Log.d("TourGuide", e.toString());
+                e.printStackTrace();
             } finally {
                 if (fis != null)
                     try {
