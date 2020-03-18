@@ -11,6 +11,7 @@ package org.vulcanrobotics.ftcrobotcore;
 
 import android.util.Log;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
@@ -18,17 +19,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Objects;
 
 import static org.vulcanrobotics.ftcrobotcore.telemetry.TelemetryHandler.telemetry;
 
 public class MotionLogger {
 
-    Gamepad gamepad;
-    public HashMap<Integer, HashMap<String, Object>> gamepadArray = new HashMap<>();
+    private HashMap<Integer, HashMap<String, Object>> gamepadArray = new HashMap<>();
 
-    public MotionLogger(Gamepad gamepad) {
-        this.gamepad = gamepad;
-    }
+    public MotionLogger() {}
 
     public void saveGamepadState(int step, Gamepad gamepad){
         gamepadArray.put(step, CoreGamepad.toHashMap(gamepad));
@@ -62,8 +61,10 @@ public class MotionLogger {
                 char current;
                 while (fis.available() > 0) {
                     current = (char) fis.read();
-                    result = result + String.valueOf(current);
+                    result = result + current;
                 }
+                gamepadArray = mapper.readValue(result, new TypeReference<HashMap<Integer, HashMap<String, Object>>>(){});
+
             } catch (Exception e) {
                 Log.d("TourGuide", e.toString());
             } finally {
@@ -73,9 +74,11 @@ public class MotionLogger {
                     } catch (IOException ignored) {
                     }
             }
-
-
         }
+    }
+
+    public void getValue(int n, String key) {
+        Objects.requireNonNull(gamepadArray.get(n)).get(key);
     }
 
 }
