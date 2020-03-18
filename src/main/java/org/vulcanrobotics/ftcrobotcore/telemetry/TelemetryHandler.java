@@ -6,28 +6,31 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package org.vulcanrobotics.ftcrobotcore.robot.profiles;
+package org.vulcanrobotics.ftcrobotcore.telemetry;
 
-import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.robocol.TelemetryMessage;
 
-import org.vulcanrobotics.ftcrobotcore.robot.RobotConfig;
-import org.vulcanrobotics.ftcrobotcore.robot.wheels.WheelType;
-import org.vulcanrobotics.ftcrobotcore.teleop.JoystickAcceleration;
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-public class standardMecanum extends RobotConfig {
+public class TelemetryHandler{
 
-    public void initialize() {
-        //4 inches in mm
-        wheelAttributes.radius = 101.6;
-        wheelAttributes.wheelType = WheelType.HOLONOMIC;
-        wheelAttributes.rollerAngle = Math.PI / 4.0;
-        joystickAcceleration = JoystickAcceleration.LINEAR;
-        robotAngleOffset = 0;
-        IMUParameters.mode = BNO055IMU.SensorMode.IMU;
-        IMUParameters.angleUnit = BNO055IMU.AngleUnit.RADIANS;
-        IMUParameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
-        IMUParameters.loggingEnabled = false;
+    public static Telemetry telemetry;
+
+    public TelemetryHandler() {
+        Thread telemetryThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                updateTelemetry();
+            }
+        });
+        telemetryThread.start();
     }
+
+    public static void updateTelemetry() {
+        telemetry.update();
+    }
+
+
 
 
 }

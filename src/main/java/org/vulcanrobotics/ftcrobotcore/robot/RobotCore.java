@@ -8,10 +8,13 @@
 
 package org.vulcanrobotics.ftcrobotcore.robot;
 
+import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 public abstract class RobotCore {
 
-    DcMotor front_right, front_left, back_right, back_left;
+    protected DcMotor front_right, front_left, back_right, back_left;
+
+    protected BNO055IMU imu;
 
 }
