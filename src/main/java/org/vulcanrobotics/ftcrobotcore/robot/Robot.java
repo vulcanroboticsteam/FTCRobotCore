@@ -13,8 +13,6 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Robot extends RobotCore {
 
-
-
     public void initialize(HardwareMap hwMap) {
         front_right = hwMap.dcMotor.get("front_right");
         front_left = hwMap.dcMotor.get("front_left");

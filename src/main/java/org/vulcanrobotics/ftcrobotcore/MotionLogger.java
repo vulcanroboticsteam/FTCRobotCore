@@ -21,8 +21,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
 
-import static org.vulcanrobotics.ftcrobotcore.telemetry.TelemetryHandler.telemetry;
-
 public class MotionLogger {
 
     private HashMap<Integer, HashMap<String, Object>> gamepadArray = new HashMap<>();
@@ -48,7 +46,7 @@ public class MotionLogger {
      */
     public void loadGamepadArrayFromJSON(String path) {
         ObjectMapper mapper = new ObjectMapper();
-        String result = "";
+        StringBuilder result = new StringBuilder();
         File file = new File(path);
         if ( file.exists() ) {
             //byte[] buffer = new byte[(int) new File(filePath).length()];
@@ -61,9 +59,9 @@ public class MotionLogger {
                 char current;
                 while (fis.available() > 0) {
                     current = (char) fis.read();
-                    result = result + current;
+                    result.append(current);
                 }
-                gamepadArray = mapper.readValue(result, new TypeReference<HashMap<Integer, HashMap<String, Object>>>(){});
+                gamepadArray = mapper.readValue(result.toString(), new TypeReference<HashMap<Integer, HashMap<String, Object>>>(){});
 
             } catch (Exception e) {
                 Log.d("TourGuide", e.toString());
